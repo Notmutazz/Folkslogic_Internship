@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>📄 Resume Report</h2>
+        <pre>{{ report_content }}</pre>
+        <a href="{{ url_for('upload') }}">Upload Another Resume</a>
+    </div>
+</body>
+</html>

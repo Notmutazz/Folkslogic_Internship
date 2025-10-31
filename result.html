@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>📊 Resume Analysis Result</h2>
+    <p><strong>Job Role:</strong> {{ job_title }}</p>
+    <p><strong>Score:</strong> {{ score }}%</p>
+    <p><strong>Feedback:</strong> {{ feedback }}</p>
+
+    <p><strong>✅ Matched Keywords:</strong> {{ matched | join(', ') if matched else "None" }}</p>
+    <p><strong>❌ Missing Keywords:</strong> {{ missing | join(', ') if missing else "None" }}</p>
+
+    <a href="{{ url_for('download_report', job_title=job_title, score=score, feedback=feedback, matched=','.join(matched), missing=','.join(missing)) }}" class="btn">
+      Download Report
+  </a>
+      <a href="{{ url_for('upload') }}" class="btn secondary">Upload Another Resume</a>
+    <a href="{{ url_for('home') }}" class="btn secondary">Back to Home</a>
+</div>
+</body>
+</html>

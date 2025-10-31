@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Resume</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>📂 Upload Your Resume</h2>
+        <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+            <label for="job_title">Select Job Role:</label>
+            <select name="job_title" id="job_title" required>
+                {% for role in job_titles %}
+                    <option value="{{ role }}">{{ role }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="resume">Upload Resume (PDF only):</label>
+            <input type="file" name="resume" accept="application/pdf" required>
+
+            <button type="submit" class="btn">Analyze Resume</button>
+        </form>
+    </div>
+</body>
+</html>
